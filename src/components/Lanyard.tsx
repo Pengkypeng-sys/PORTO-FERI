@@ -114,23 +114,37 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
       [card, j1, j2, j3, fixed].forEach(ref => ref.current?.wakeUp());
       card.current?.setNextKinematicTranslation({ x: vec.x - dragged.x, y: vec.y - dragged.y, z: vec.z - dragged.z });
     }
-    if (fixed.current) {
+    const tFixed = fixed.current?.translation();
+    const t3 = j3.current?.translation();
+    
+    // Safety check for physics engine initialization (prevent NaN crashes)
+    if (fixed.current && tFixed && t3 && !isNaN(tFixed.x) && !isNaN(t3.x)) {
       [j1, j2].forEach(ref => {
-        if (!ref.current.lerped) ref.current.lerped = new THREE.Vector3().copy(ref.current.translation());
-        const clampedDistance = Math.max(0.1, Math.min(1, ref.current.lerped.distanceTo(ref.current.translation())));
-        ref.current.lerped.lerp(
-          ref.current.translation(),
-          delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
-        );
+        const tr = ref.current?.translation();
+        if (tr && !isNaN(tr.x)) {
+          if (!ref.current.lerped) ref.current.lerped = new THREE.Vector3().copy(tr);
+          const clampedDistance = Math.max(0.1, Math.min(1, ref.current.lerped.distanceTo(tr)));
+          ref.current.lerped.lerp(
+            tr,
+            delta * (minSpeed + clampedDistance * (maxSpeed - minSpeed))
+          );
+        }
       });
-      curve.points[0].copy(j3.current.translation());
-      curve.points[1].copy(j2.current.lerped);
-      curve.points[2].copy(j1.current.lerped);
-      curve.points[3].copy(fixed.current.translation());
+      
+      curve.points[0].copy(t3);
+      if (j2.current?.lerped) curve.points[1].copy(j2.current.lerped);
+      if (j1.current?.lerped) curve.points[2].copy(j1.current.lerped);
+      curve.points[3].copy(tFixed);
+      
       band.current.geometry.setPoints(curve.getPoints(isMobile ? 16 : 32));
-      ang.copy(card.current.angvel());
-      rot.copy(card.current.rotation());
-      card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
+      
+      const cardAng = card.current?.angvel();
+      const cardRot = card.current?.rotation();
+      if (cardAng && cardRot && !isNaN(cardAng.x) && !isNaN(cardRot.x)) {
+        ang.copy(cardAng);
+        rot.copy(cardRot);
+        card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
+      }
     }
   });
 
