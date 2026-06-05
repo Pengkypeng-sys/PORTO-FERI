@@ -10,7 +10,7 @@ export default function Skills() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end p-[32px_24px_20px] md:p-[44px_48px_24px] gap-2 md:gap-0 fade-up">
         <div>
           <div className="font-mono text-[8px] tracking-widest uppercase text-bau-muted mb-3">03 / Kemampuan</div>
-          <h2 className="font-serif text-[28px] leading-[1.1] mt-2">Technical <em className="italic text-bau-muted">Stack.</em></h2>
+          <h2 className="font-serif text-[28px] leading-[1.1] mt-2">Technical <span className="text-bau-muted">Stack.</span></h2>
         </div>
         <span className="font-mono text-[9px] text-bau-muted">6 modul sistem · Tersertifikasi</span>
       </div>

@@ -12,7 +12,7 @@ export default function Navbar() {
   
   return (
     <nav className="bg-bau-bg/95 border-b border-bau-border px-6 md:px-12 flex items-center justify-between h-[60px] sticky top-0 z-50 backdrop-blur-[10px]">
-      <Link href="/" className="font-serif italic text-[18px] text-bau-ink decoration-transparent" onClick={() => setIsOpen(false)}>
+      <Link href="/" className="font-serif text-[18px] font-bold text-bau-ink decoration-transparent" onClick={() => setIsOpen(false)}>
         Feriman
       </Link>
       

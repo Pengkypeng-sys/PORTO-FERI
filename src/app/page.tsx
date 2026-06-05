@@ -29,7 +29,7 @@ export default function Home() {
             </div>
             <h1 className="font-serif text-[44px] md:text-[62px] leading-[0.93] tracking-[-2px] mb-6">
               Infra<br />
-              <em className="italic text-bau-muted">structure</em><br />
+              <span className="text-bau-muted">structure</span><br />
               for the<br />
               AI Era.
             </h1>
