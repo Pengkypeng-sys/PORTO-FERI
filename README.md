@@ -1,37 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Feriman — Professional Portfolio
 
-## Getting Started
+![Feriman Portfolio](https://img.shields.io/badge/Status-Production%20Ready-success)
+![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![TailwindCSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC)
+![Three.js](https://img.shields.io/badge/Three.js-3D%20Interactive-blue)
+
+A high-performance, enterprise-grade personal portfolio built for **Feriman**, an IT Infrastructure Engineer and Full-Stack Developer. 
+
+This repository houses a modern, interactive web application featuring a highly refined **Bauhaus/Swiss Minimalist** design system and a physics-based 3D interactive hero section.
+
+---
+
+## 🌟 Key Features
+
+*   **3D Interactive Lanyard (Hero Section)**: 
+    *   Powered by `@react-three/fiber` and `@react-three/rapier` (physics engine).
+    *   Features a fully interactive, draggable Vercel-style ID card.
+    *   Custom dynamic HTML texturing using Drei's `<Html transform>` mapping the profile photo directly onto the 3D mesh with CSS hover states preserved.
+*   **Bauhaus Aesthetic**: 
+    *   Strict adherence to a 5-tone minimalist color palette (`#18181A` to `#F7F6F2`).
+    *   High-contrast, mono-spaced editorial typography using `DM Serif Display` and `Space Mono`.
+*   **Fully Responsive & App-like Navigation**: 
+    *   Custom sticky navigation with a dynamic mobile overlay menu.
+    *   Smooth CSS-accelerated fade-up animations.
+*   **SEO Optimized**: 
+    *   Configured with complete OpenGraph and Twitter card metadata for professional social sharing.
+
+## 🛠️ Tech Stack
+
+*   **Framework**: Next.js 15 (App Router)
+*   **Styling**: Tailwind CSS
+*   **3D Rendering**: Three.js, React Three Fiber, React Three Drei
+*   **Physics Engine**: React Three Rapier
+*   **Icons & Textures**: Custom generated SVGs (`feriman-band.svg`)
+
+## 💻 About The Author
+
+**Feriman** is a Senior IT Infrastructure Engineer & Full-Stack Developer specializing in:
+*   **Private Cloud Orchestration**: Proxmox VE (LXC/VM), Docker, MinIO (S3), PostgreSQL.
+*   **Network Architecture**: MikroTik, Cisco, BGP, VLANs.
+*   **Cybersecurity**: Firewalls, VPNs, Access Control, managed via Kali Linux.
+*   **Web Development**: Next.js, TypeScript, Prisma, Redux, Sanity CMS, PWA.
+*   **AI Automation**: Gemini API, Cloudflare Workers.
+
+## 🚀 Quick Start
 
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📦 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project is fully optimized for deployment on **Vercel**. 
+Simply connect this repository to your Vercel account, and it will automatically build and deploy the application with zero additional configuration needed.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# PORTO-FERI
+---
+*Designed & Engineered for maximum performance and professional impact.*
