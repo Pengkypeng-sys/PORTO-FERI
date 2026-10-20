@@ -4,7 +4,7 @@ import { useFadeUp } from "@/hooks/useFadeUp";
 import { SITE } from "@/data/site";
 import SocialIcon from "@/components/SocialIcon";
 import type { ReactNode } from "react";
-import { FiDownload, FiGlobe } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi";
 
 interface ContactRow {
   title: string;
@@ -16,7 +16,6 @@ interface ContactRow {
 const ICON_CLS = "w-4 h-4";
 
 const ROWS: ContactRow[] = [
-  { title: SITE.website.label, sub: "Portofolio lengkap", href: SITE.website.url, icon: <FiGlobe className={ICON_CLS} aria-hidden /> },
   ...SITE.socials.map((s) => ({ title: s.handle, sub: s.label, href: s.url, icon: <SocialIcon label={s.label} className={ICON_CLS} /> })),
   ...(SITE.cvUrl
     ? [{ title: "Unduh CV", sub: "Curriculum Vitae (PDF)", href: SITE.cvUrl, icon: <FiDownload className={ICON_CLS} aria-hidden /> }]

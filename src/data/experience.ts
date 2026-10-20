@@ -10,15 +10,15 @@ const AL_FAKHIR = "SD & SMP Islam Modern Al-Fakhir · Sawangan, Depok";
 
 export const EXPERIENCE: Experience[] = [
   {
-    period: "2025 - 2026",
+    period: "2025 - Juli 2027",
     role: "Full Stack Developer & IT Staff",
     org: AL_FAKHIR,
     current: true,
     points: [
-      "Membangun LMS sekolah secara mandiri untuk ±600 siswa dan ±100 guru: presensi, nilai, rapor, SPP, dan aplikasi Android.",
+      "Membangun LMS sekolah seorang diri dengan bantuan AI coding assistant, untuk ±600 siswa dan ±100 guru: presensi, nilai, rapor, SPP, dan aplikasi Android.",
       "Mengelola jaringan dua unit sekolah (hingga ±1.000 perangkat): switch, access point, routing, dan QoS MikroTik.",
       "Menjalankan server Proxmox dan Docker untuk layanan internal melalui Cloudflare Tunnel, serta mengotomasi pembuatan akun pengguna dengan n8n.",
-      "Membangun absensi RFID/QR dengan notifikasi WhatsApp otomatis ke orang tua, serta portal registrasi dan dashboard admin PWA.",
+      "Membangun absensi RFID/QR dengan notifikasi WhatsApp otomatis ke orang tua, serta portal registrasi, aplikasi kuitansi, dan dashboard admin PWA.",
     ],
   },
   {

@@ -3,7 +3,7 @@
 import { useFadeUp } from "@/hooks/useFadeUp";
 import { SITE } from "@/data/site";
 import SocialIcon from "@/components/SocialIcon";
-import { FiArrowUpRight, FiGlobe, FiMail, FiMapPin } from "react-icons/fi";
+import { FiArrowUpRight, FiMail, FiMapPin } from "react-icons/fi";
 import { EXPERIENCE } from "@/data/experience";
 
 export default function Profil() {
@@ -21,7 +21,6 @@ export default function Profil() {
           {[
             { Icon: FiMail, text: SITE.email, sub: "Email", href: `mailto:${SITE.email}` },
             { Icon: FiMapPin, text: SITE.location.split(", ")[0], sub: SITE.location.split(", ")[1] ?? "" },
-            { Icon: FiGlobe, text: SITE.website.label, sub: "Portofolio", href: SITE.website.url },
           ].map(({ Icon, text, sub, href }) => (
             <li key={sub} className="flex items-start gap-3">
               <span className="grid place-items-center w-8 h-8 shrink-0 border border-bau-border bg-bau-white text-bau-ink2">

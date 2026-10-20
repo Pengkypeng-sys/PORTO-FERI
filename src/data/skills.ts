@@ -9,7 +9,7 @@ export const CORE_SKILLS: SkillGroup[] = [
   {
     name: "Jaringan & Infrastruktur",
     desc: "Merancang, mengonfigurasi, dan merawat jaringan: routing, switching, failover, sampai troubleshooting.",
-    tags: ["MikroTik", "Cisco", "Ubiquiti", "VLAN", "BGP", "QoS"],
+    tags: ["MikroTik", "Cisco", "VLAN", "QoS"],
   },
   {
     name: "Cloud & Server",

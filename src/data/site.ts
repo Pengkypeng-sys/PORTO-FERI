@@ -11,10 +11,11 @@ export const SITE = {
   website: { label: "porto-feri.vercel.app", url: "https://porto-feri.vercel.app" },
   /** Tambahkan akun di sini (GitHub, LinkedIn, Instagram, WhatsApp, ...); otomatis tampil di halaman Kontak. */
   socials: [
+    { label: "GitHub", handle: "Pengkypeng-sys", url: "https://github.com/Pengkypeng-sys" },
     { label: "LinkedIn", handle: "in/ferimann", url: "https://www.linkedin.com/in/ferimann/" },
     { label: "Instagram", handle: "@ferimnn", url: "https://www.instagram.com/ferimnn/" },
     { label: "YouTube", handle: "@One22.", url: "https://www.youtube.com/@One22." },
   ] as SocialLink[],
-  /** Isi dengan URL CV (mis. "/cv-feriman.pdf" di folder public) agar tombol "Unduh CV" muncul di halaman Kontak. */
-  cvUrl: "",
+  /** CV publik (tanpa nomor HP), dibuat dengan `npm run cv`. Kosongkan untuk menyembunyikan tombol "Unduh CV" di halaman Kontak. */
+  cvUrl: "/cv-feriman.pdf",
 };

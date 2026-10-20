@@ -2,32 +2,12 @@
 
 import { useFadeUp } from "@/hooks/useFadeUp";
 import SectionHeader from "@/components/SectionHeader";
+import { CERTIFICATES, ORGANIZATIONS } from "@/data/education";
 
 const FACTS = [
   { label: "Periode", value: "2020 – 2024" },
   { label: "IPK", value: "3.29", unit: "/ 4.00" },
   { label: "Proyek Akhir", value: "A", unit: "nilai sempurna" },
-];
-
-const ORGANIZATIONS = [
-  {
-    period: "Des 2020 – Okt 2023",
-    role: "Wakil Ketua Bidang PDD",
-    org: "Himpunan Teknik Komputer, Universitas Amikom Yogyakarta",
-    desc: "Memimpin divisi Pengembangan & Dokumentasi himpunan.",
-  },
-  {
-    period: "2023",
-    role: "Koordinator Dokumentasi",
-    org: "Musyawarah Besar Kampus",
-    desc: "Mengelola arsip, publikasi, dan dokumentasi resmi acara.",
-  },
-  {
-    period: "2023",
-    role: "Tim Pelaksana",
-    org: "Lomba Cyber Security & Amikom Video Community",
-    desc: "Mengoordinasi sisi teknis dan penyelenggaraan kompetisi tingkat kampus.",
-  },
 ];
 
 export default function Pendidikan() {
@@ -117,12 +97,14 @@ export default function Pendidikan() {
           <article className="bg-bau-white border border-bau-border p-[22px_28px]">
             <div className="font-mono text-[11px] tracking-widest uppercase text-bau-muted mb-4">Sertifikat Pelatihan</div>
             <ul className="list-none p-0 divide-y divide-bau-border">
-              {[
-                "Cisco CCNA: Enterprise Networking, Security, and Automation",
-                "AWS Cloud Computing: Full Stack Cloud Engineer",
-              ].map((c) => (
-                <li key={c} className="py-3 first:pt-0 last:pb-0 text-[14px] text-bau-ink">
-                  {c}
+              {CERTIFICATES.map((c) => (
+                <li key={c.name} className="py-3.5 first:pt-0 last:pb-0">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <span className="text-[14px] font-medium text-bau-ink">{c.name}</span>
+                    <span className="shrink-0 font-mono text-[11px] text-bau-muted">{c.period}</span>
+                  </div>
+                  <div className="font-mono text-[11px] text-bau-muted mt-0.5">{c.issuer}</div>
+                  {c.detail && <p className="text-[12.5px] text-bau-ink2 leading-[1.6] mt-1.5">{c.detail}</p>}
                 </li>
               ))}
             </ul>

@@ -21,11 +21,28 @@ Semua teks ada di `src/data/`, tidak perlu menyentuh komponen:
 |---|---|
 | `site.ts` | Email, lokasi, website, akun sosial (`socials`), dan URL CV (`cvUrl`) |
 | `experience.ts` | Riwayat pengalaman kerja |
-| `projects.ts` | Daftar proyek (gambar di `public/projects/`) |
+| `projects.ts` | Daftar proyek, stack, dan penanda cara pengerjaan (`build`: `ai`, `mandiri`, `campuran`) |
 | `skills.ts` | Keahlian inti dan pendukung |
+| `education.ts` | Organisasi dan sertifikat pelatihan |
+| `cv.ts` | Teks khusus CV (ringkasan, pendidikan, daftar keahlian CV) |
 | `nav.ts` | Menu navigasi |
 
 Teks halaman Profil, Pendidikan, dan Kontak ada langsung di `src/app/<halaman>/page.tsx`.
+
+## CV
+
+CV dirender dari data di atas oleh halaman `/cv` (A4, satu halaman), sehingga CV dan situs selalu sama.
+Setelah mengubah data, buat ulang PDF-nya:
+
+```bash
+npm run build && npm run cv
+# -> public/cv-feriman.pdf (publik, tanpa nomor HP; dipakai tombol "Unduh CV")
+
+CV_PHONE="+62 8xx-xxxx-xxxx" CV_OUT=~/Downloads/CV_Feriman.pdf npm run cv
+# -> versi pribadi dengan nomor HP, untuk dikirim ke lamaran
+```
+
+Butuh Google Chrome (atau set `CHROME_BIN`). Nomor HP sengaja tidak disimpan di repositori.
 
 ## Kartu ID 3D
 
