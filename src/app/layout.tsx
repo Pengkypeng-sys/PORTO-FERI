@@ -31,10 +31,10 @@ const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Feriman | Full Stack Developer & IT Staff",
-  description: "Portofolio Feriman, Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem. Mencari peluang kerja di bidang IT.",
+  description: "Portofolio Feriman, Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem. Sedang mencari pekerjaan di bidang IT.",
   openGraph: {
     title: "Feriman | Full Stack Developer & IT Staff",
-    description: "Portofolio Feriman: Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem.",
+    description: "Portofolio Feriman: Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem. Sedang mencari pekerjaan di bidang IT.",
     url: "/",
     siteName: "Feriman Portfolio",
     locale: "id_ID",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Feriman | Full Stack Developer & IT Staff",
-    description: "Portofolio Feriman: Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem.",
+    description: "Portofolio Feriman: Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem. Sedang mencari pekerjaan di bidang IT.",
   },
 };
 

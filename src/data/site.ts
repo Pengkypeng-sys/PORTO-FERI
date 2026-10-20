@@ -8,6 +8,8 @@ export const SITE = {
   name: "Feriman",
   email: "feriman.getup@gmail.com",
   location: "Depok, Jawa Barat",
+  /** Status ketersediaan, dipakai di navbar dan hero. */
+  status: "Sedang mencari pekerjaan",
   website: { label: "porto-feri.vercel.app", url: "https://porto-feri.vercel.app" },
   /** Tambahkan akun di sini (GitHub, LinkedIn, Instagram, WhatsApp, ...); otomatis tampil di halaman Kontak. */
   socials: [

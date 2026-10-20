@@ -45,7 +45,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-in text-[16px] text-bau-ink2 leading-[1.7] max-w-[460px] mb-9" style={delay(420)}>
-              Saya <strong className="text-bau-ink font-semibold">Feriman</strong>, Full Stack Developer &amp; IT Staff dengan pengalaman mengelola jaringan sekolah dan membangun aplikasi seperti LMS, pembayaran, dan presensi. Terbuka untuk lowongan IT: jaringan, developer, atau IT umum.
+              Saya <strong className="text-bau-ink font-semibold">Feriman</strong>, Full Stack Developer &amp; IT Staff dengan pengalaman mengelola jaringan sekolah dan membangun aplikasi seperti LMS, pembayaran, dan presensi. <strong className="text-bau-ink font-semibold">Sedang mencari pekerjaan</strong> di bidang IT: jaringan, developer, atau IT umum.
             </p>
 
             <div className="hero-in flex gap-3 flex-wrap" style={delay(540)}>
@@ -61,11 +61,20 @@ export default function Home() {
               >
                 Hubungi Saya
               </Link>
+              {SITE.cvUrl && (
+                <a
+                  href={SITE.cvUrl}
+                  download="CV_Feriman.pdf"
+                  className="font-mono text-[11px] tracking-widest uppercase py-3.5 px-6 border border-bau-border text-bau-ink2 hover:border-bau-ink hover:text-bau-ink transition-colors"
+                >
+                  Unduh CV ↓
+                </a>
+              )}
             </div>
           </div>
 
           <p className="hero-in relative mt-12 pt-5 border-t border-bau-border font-mono text-[11px] tracking-widest uppercase text-bau-muted" style={delay(680)}>
-            {SITE.location} · Terbuka untuk lowongan IT
+            {SITE.location} · {SITE.status}
           </p>
         </div>
 

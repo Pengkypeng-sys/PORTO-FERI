@@ -31,7 +31,7 @@ export default function Kontak() {
         <div>
           <div className="font-mono text-[11px] tracking-widest uppercase text-white/50 mb-5">Kontak</div>
           <h2 className="font-serif text-[clamp(2.5rem,4.6vw,4.25rem)] text-bau-bg leading-[1] tracking-[-0.03em]">
-            Tertarik bekerja sama? <em className="text-[#f5f3ee]/50">Mari bicara.</em>
+            Punya lowongan IT? <em className="text-[#f5f3ee]/50">Mari bicara.</em>
           </h2>
           <a
             href={`mailto:${SITE.email}`}
@@ -44,7 +44,7 @@ export default function Kontak() {
         <ul className="flex flex-col gap-3 list-none p-0">
           <li className="flex items-center gap-2.5 text-[13px] text-white/60">
             <span className="w-[7px] h-[7px] rounded-full bg-bau-green shrink-0" />
-            Terbuka untuk peluang kerja di bidang IT: jaringan, developer, dan IT umum
+            Sedang mencari pekerjaan di bidang IT: jaringan, developer, dan IT umum
           </li>
           <li className="flex items-center gap-2.5 text-[13px] text-white/60">
             <span className="text-[13px] text-white/40">⌖</span>

@@ -6,7 +6,7 @@ export const CV = {
   fullName: "Feriman, S.Kom.",
   headline: "IT Staff — Jaringan, Server & Aplikasi Internal",
   summary:
-    "IT Staff yang mengelola jaringan, server, dan aplikasi internal. Lulusan S1 Teknik Komputer dengan sertifikat pelatihan Cisco CCNA dan AWS Cloud Computing. Menjalankan server Proxmox self-hosted, serta membangun aplikasi presensi, pembayaran, dan e-voting dengan bantuan AI coding assistant.",
+    "IT Staff yang mengelola jaringan, server, dan aplikasi internal. Lulusan S1 Teknik Komputer dengan sertifikat pelatihan Cisco CCNA dan AWS Cloud Computing. Menjalankan server Proxmox self-hosted, serta membangun aplikasi presensi, pembayaran, dan e-voting dengan bantuan AI coding assistant. Sedang mencari pekerjaan di bidang IT: jaringan, server, atau developer.",
   education: [
     {
       title: "S1 Teknik Komputer",

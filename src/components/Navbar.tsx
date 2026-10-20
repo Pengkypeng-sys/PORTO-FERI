@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { NAV } from "@/data/nav";
+import { SITE } from "@/data/site";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -48,7 +49,7 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         <span className="hidden sm:flex items-center gap-2 font-mono text-[11px] text-bau-ink tracking-widest uppercase">
           <span className="w-[7px] h-[7px] rounded-full bg-bau-green" />
-          Terbuka untuk kerja
+          {SITE.status}
         </span>
         <button
           type="button"
