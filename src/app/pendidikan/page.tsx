@@ -5,7 +5,7 @@ import SectionHeader from "@/components/SectionHeader";
 import { CERTIFICATES, ORGANIZATIONS } from "@/data/education";
 
 const FACTS = [
-  { label: "Periode", value: "2020 – 2024" },
+  { label: "Periode", value: "2020 – Jan 2025" },
   { label: "IPK", value: "3.29", unit: "/ 4.00" },
   { label: "Proyek Akhir", value: "A", unit: "nilai sempurna" },
 ];

@@ -10,7 +10,7 @@ export const CV = {
   education: [
     {
       title: "S1 Teknik Komputer",
-      period: "Nov 2020 – Des 2024",
+      period: "Nov 2020 – Jan 2025",
       org: "Universitas Amikom Yogyakarta · IPK 3,29 / 4,00",
       points: [
         "Tugas akhir: smart home IoT berbasis perintah suara, akurasi 96,2%, nilai A.",
