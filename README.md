@@ -1,63 +1,36 @@
-# Feriman — Professional Portfolio
+# Feriman — Portofolio
 
-![Feriman Portfolio](https://img.shields.io/badge/Status-Production%20Ready-success)
-![Next.js](https://img.shields.io/badge/Next.js-15-black)
-![TailwindCSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC)
-![Three.js](https://img.shields.io/badge/Three.js-3D%20Interactive-blue)
+Portofolio pribadi Feriman, Full Stack Developer & IT Staff di SD & SMP Islam Modern Al-Fakhir yang mencari peluang kerja di bidang IT (jaringan, developer, IT umum). Dibangun dengan Next.js (App Router), Tailwind CSS, dan kartu ID 3D interaktif di hero.
 
-A high-performance, enterprise-grade personal portfolio built for **Feriman**, an IT Infrastructure Engineer and Full-Stack Developer. 
-
-This repository houses a modern, interactive web application featuring a highly refined **Bauhaus/Swiss Minimalist** design system and a physics-based 3D interactive hero section.
-
----
-
-## 🌟 Key Features
-
-*   **3D Interactive Lanyard (Hero Section)**: 
-    *   Powered by `@react-three/fiber` and `@react-three/rapier` (physics engine).
-    *   Features a fully interactive, draggable Vercel-style ID card.
-    *   Custom dynamic HTML texturing using Drei's `<Html transform>` mapping the profile photo directly onto the 3D mesh with CSS hover states preserved.
-*   **Bauhaus Aesthetic**: 
-    *   Strict adherence to a 5-tone minimalist color palette (`#18181A` to `#F7F6F2`).
-    *   High-contrast, mono-spaced editorial typography using `DM Serif Display` and `Space Mono`.
-*   **Fully Responsive & App-like Navigation**: 
-    *   Custom sticky navigation with a dynamic mobile overlay menu.
-    *   Smooth CSS-accelerated fade-up animations.
-*   **SEO Optimized**: 
-    *   Configured with complete OpenGraph and Twitter card metadata for professional social sharing.
-
-## 🛠️ Tech Stack
-
-*   **Framework**: Next.js 15 (App Router)
-*   **Styling**: Tailwind CSS
-*   **3D Rendering**: Three.js, React Three Fiber, React Three Drei
-*   **Physics Engine**: React Three Rapier
-*   **Icons & Textures**: Custom generated SVGs (`feriman-band.svg`)
-
-## 💻 About The Author
-
-**Feriman** is a Senior IT Infrastructure Engineer & Full-Stack Developer specializing in:
-*   **Private Cloud Orchestration**: Proxmox VE (LXC/VM), Docker, MinIO (S3), PostgreSQL.
-*   **Network Architecture**: MikroTik, Cisco, BGP, VLANs.
-*   **Cybersecurity**: Firewalls, VPNs, Access Control, managed via Kali Linux.
-*   **Web Development**: Next.js, TypeScript, Prisma, Redux, Sanity CMS, PWA.
-*   **AI Automation**: Gemini API, Cloudflare Workers.
-
-## 🚀 Quick Start
-
-First, run the development server:
+## Menjalankan
 
 ```bash
 npm install
-npm run dev
+npm run dev      # http://localhost:3000
+npm run build    # build produksi
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Disarankan memakai Node 22 (dependensi `camera-controls` meminta Node >= 22).
 
-## 📦 Deployment
+## Mengubah isi
 
-This project is fully optimized for deployment on **Vercel**. 
-Simply connect this repository to your Vercel account, and it will automatically build and deploy the application with zero additional configuration needed.
+Semua teks ada di `src/data/`, tidak perlu menyentuh komponen:
 
----
-*Designed & Engineered for maximum performance and professional impact.*
+| File | Isi |
+|---|---|
+| `site.ts` | Email, lokasi, website, akun sosial (`socials`), dan URL CV (`cvUrl`) |
+| `experience.ts` | Riwayat pengalaman kerja |
+| `projects.ts` | Daftar proyek (gambar di `public/projects/`) |
+| `skills.ts` | Keahlian inti dan pendukung |
+| `nav.ts` | Menu navigasi |
+
+Teks halaman Profil, Pendidikan, dan Kontak ada langsung di `src/app/<halaman>/page.tsx`.
+
+## Kartu ID 3D
+
+`src/components/Lanyard.tsx` memakai React Three Fiber dan Rapier (fisika). Foto dilukis langsung ke UV `public/card.glb` lewat `public/card-photo-gray.webp` dan `card-photo-color.webp` (muka depan: u 0..0.5, v 0..0.75), jadi tidak bisa bergeser dari model 3D. Tali memakai `public/feriman-band.png`.
+
+## Deploy
+
+Cocok untuk Vercel: hubungkan repositori, tanpa konfigurasi tambahan.
