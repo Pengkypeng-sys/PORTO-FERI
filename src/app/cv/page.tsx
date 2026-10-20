@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
-import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
+import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
 import { CV } from "@/data/cv";
 import { EXPERIENCE } from "@/data/experience";
 import { CERTIFICATES, ORGANIZATIONS } from "@/data/education";
 import { SITE } from "@/data/site";
-import CvPhone from "./CvPhone";
 
 const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ["400", "500", "600", "800"] });
 
@@ -18,6 +17,10 @@ export const metadata: Metadata = {
 const linkedin = SITE.socials.find((s) => s.label === "LinkedIn");
 const github = SITE.socials.find((s) => s.label === "GitHub");
 
+// Nomor HP tidak ada di data publik: CV pribadi dicetak lewat /cv?tel=... (lihat scripts/build-cv.mjs).
+// Hanya format nomor telepon yang diterima, supaya URL tidak bisa dipakai menampilkan teks sembarang.
+const PHONE_PATTERN = /^\+?[0-9 ()-]{6,20}$/;
+
 function Section({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <section className="cv-section">
@@ -27,7 +30,10 @@ function Section({ label, children }: { label: string; children: React.ReactNode
   );
 }
 
-export default function CvPage() {
+export default async function CvPage({ searchParams }: { searchParams: Promise<{ tel?: string | string[] }> }) {
+  const { tel } = await searchParams;
+  const phone = typeof tel === "string" && PHONE_PATTERN.test(tel) ? tel : null;
+
   return (
     <div className="cv-wrap">
       <article className={`cv-sheet ${jakarta.className}`}>
@@ -42,7 +48,12 @@ export default function CvPage() {
               <FiMail aria-hidden />
               <span>{SITE.email}</span>
             </li>
-            <CvPhone />
+            {phone && (
+              <li>
+                <FiPhone aria-hidden />
+                <span>{phone}</span>
+              </li>
+            )}
             <li>
               <FiMapPin aria-hidden />
               <span>{SITE.location}</span>
