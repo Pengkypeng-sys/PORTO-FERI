@@ -15,7 +15,7 @@ export const PROJECTS: Project[] = [
   {
     id: "lms",
     name: "Al-Fakhir School LMS",
-    desc: "Sistem informasi sekolah untuk SD dan SMP: absensi gerbang RFID/QR, nilai dan rapor, pembayaran SPP, serta notifikasi WhatsApp ke orang tua. Dijalankan sendiri di server Proxmox, lengkap dengan portal admin, guru, dan aplikasi mobile.",
+    desc: "Sistem informasi sekolah untuk SD dan SMP (±600 siswa, ±100 guru): absensi gerbang RFID/QR, nilai dan rapor, pembayaran SPP, serta notifikasi WhatsApp ke orang tua. Dijalankan sendiri di server Proxmox, lengkap dengan portal admin, guru, dan aplikasi mobile.",
     status: "LMS · Live",
     image: "/projects/lms-login.webp",
     link: "https://admin.smpialfakhir.sch.id",
@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
   {
     id: "miuh1",
     name: "Dashboard Pembayaran MI Unwanul Huda 1",
-    desc: "Dashboard untuk mencatat SPP, PPDB, dan pembayaran lain: cicilan otomatis, rekap per kelas, kwitansi, dan laporan Excel. Admin punya kontrol penuh, wali kelas hanya bisa melihat.",
+    desc: "Dashboard untuk mencatat SPP, PPDB, dan pembayaran lain: cicilan otomatis, rekap per kelas, kuitansi, dan laporan Excel. Admin punya kontrol penuh, wali kelas hanya bisa melihat.",
     status: "Freelance · Live",
     image: "/projects/miuh1.webp",
     link: "https://miuh1.vercel.app",

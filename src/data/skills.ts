@@ -14,12 +14,12 @@ export const CORE_SKILLS: SkillGroup[] = [
   {
     name: "Cloud & Server",
     desc: "Membangun private cloud dan menjalankan layanan sendiri di VPS maupun server fisik.",
-    tags: ["Proxmox VE", "Docker", "PostgreSQL", "MinIO", "Nginx", "Linux"],
+    tags: ["Proxmox VE", "Docker", "PostgreSQL", "MinIO", "Nginx", "Cloudflare Tunnel", "Linux"],
   },
   {
     name: "Web & Sistem",
     desc: "Membuat aplikasi web dan sistem sekolah dari backend sampai tampilan, termasuk PWA dan aplikasi mobile.",
-    tags: ["Next.js", "TypeScript", "Express / NestJS", "Prisma", "Supabase", "Flutter", "Tailwind CSS"],
+    tags: ["Next.js", "TypeScript", "Express / NestJS", "Prisma", "Supabase", "Flutter", "Kotlin", "Tailwind CSS"],
   },
 ];
 
@@ -47,7 +47,7 @@ export const SUPPORT_SKILLS: SkillGroup[] = [
   },
   {
     name: "Growth YouTube",
-    desc: "Strategi konten: subscriber Sea Today naik dari 40.000 ke 80.000.",
+    desc: "Strategi konten: subscriber SEA Today naik dari 40.000 ke 80.000.",
     tags: ["Content Strategy"],
   },
   {

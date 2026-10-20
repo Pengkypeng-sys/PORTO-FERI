@@ -72,6 +72,19 @@ export default function Pendidikan() {
             </dl>
           </article>
 
+          <article className="bg-bau-white border border-bau-border p-[22px_28px] flex items-start justify-between gap-4">
+            <div>
+              <h3 className="font-serif text-[clamp(1.25rem,2vw,1.5rem)] leading-[1.15] tracking-[-0.01em] mb-1.5">
+                S1 Teknologi Pendidikan
+              </h3>
+              <p className="font-mono text-[11px] tracking-wider text-bau-muted">Fakultas Keguruan dan Ilmu Pendidikan</p>
+            </div>
+            <span className="shrink-0 flex items-center gap-1.5 font-mono text-[11px] tracking-widest uppercase text-bau-ink2 border border-bau-border px-2 py-1">
+              <span className="w-[6px] h-[6px] rounded-full bg-bau-muted" />
+              Berjalan
+            </span>
+          </article>
+
           <article className="bg-bau-ink text-bau-white p-[28px_28px_26px]">
             <div className="font-mono text-[11px] tracking-widest uppercase text-bau-green mb-4">Publikasi Ilmiah · SINTA 3</div>
             <h3 className="font-serif text-[clamp(1.2rem,1.8vw,1.5rem)] leading-[1.3] mb-4 relative">
@@ -99,6 +112,20 @@ export default function Pendidikan() {
             >
               Jurnal di SINTA ↗
             </a>
+          </article>
+
+          <article className="bg-bau-white border border-bau-border p-[22px_28px]">
+            <div className="font-mono text-[11px] tracking-widest uppercase text-bau-muted mb-4">Sertifikat Pelatihan</div>
+            <ul className="list-none p-0 divide-y divide-bau-border">
+              {[
+                "Cisco CCNA: Enterprise Networking, Security, and Automation",
+                "AWS Cloud Computing: Full Stack Cloud Engineer",
+              ].map((c) => (
+                <li key={c} className="py-3 first:pt-0 last:pb-0 text-[14px] text-bau-ink">
+                  {c}
+                </li>
+              ))}
+            </ul>
           </article>
         </div>
 

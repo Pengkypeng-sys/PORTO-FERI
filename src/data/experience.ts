@@ -10,37 +10,38 @@ const AL_FAKHIR = "SD & SMP Islam Modern Al-Fakhir · Sawangan, Depok";
 
 export const EXPERIENCE: Experience[] = [
   {
-    period: "2025 - Sekarang",
+    period: "2025 - 2026",
     role: "Full Stack Developer & IT Staff",
     org: AL_FAKHIR,
     current: true,
     points: [
-      "Mengembangkan ekosistem aplikasi sekolah: LMS, pembayaran, presensi, dan aplikasi Android.",
-      "Membangun dan mengelola infrastruktur jaringan sekolah: switch, access point, routing, dan QoS.",
+      "Membangun LMS sekolah secara mandiri untuk ±600 siswa dan ±100 guru: presensi, nilai, rapor, SPP, dan aplikasi Android.",
+      "Mengelola jaringan dua unit sekolah (hingga ±1.000 perangkat): switch, access point, routing, dan QoS MikroTik.",
+      "Menjalankan server Proxmox dan Docker untuk layanan internal melalui Cloudflare Tunnel, serta mengotomasi pembuatan akun pengguna dengan n8n.",
       "Membangun absensi RFID/QR dengan notifikasi WhatsApp otomatis ke orang tua, serta portal registrasi dan dashboard admin PWA.",
     ],
   },
   {
     period: "2020 - Sekarang",
     role: "Freelance IT & Otomasi AI",
-    org: "Freelance · Remote",
+    org: "Freelance · Remote · Paruh waktu",
     current: true,
     points: [
-      "Membangun dashboard pembayaran siswa (SPP, PPDB, kwitansi, laporan Excel) untuk MI Unwanul Huda 1.",
+      "Membangun dashboard pembayaran siswa (SPP, PPDB, kuitansi, laporan Excel) untuk MI Unwanul Huda 1.",
       "Mengembangkan platform pencarian lawan sparing (Cari Sparingan) dan sistem bantu CS toko online (SAMAQU).",
       "Merancang jaringan dan membangun otomasi AI (LLM, n8n, WhatsApp) sesuai kebutuhan klien.",
     ],
   },
   {
-    period: "2 bulan",
-    role: "Growth YouTube",
-    org: "Sea Today · Kontrak",
-    points: ["Menaikkan subscriber kanal YouTube dari 40.000 menjadi 80.000 (2x lipat) selama masa kontrak."],
+    period: "Pertengahan 2022",
+    role: "Content & Growth Specialist",
+    org: "SEA Today · Kontrak 2 bulan",
+    points: ["Menaikkan subscriber kanal YouTube dari 40.000 menjadi 80.000 (2x lipat) dalam 2 bulan kontrak."],
   },
   {
     period: "2020 - 2023",
     role: "System Administrator",
-    org: "Jaringan Lokal & Server Fisik",
-    points: ["Merawat server fisik dan menjaga jaringan lokal tetap aman dan lancar."],
+    org: AL_FAKHIR,
+    points: ["Merawat server fisik dan menjaga jaringan lokal sekolah tetap aman dan lancar."],
   },
 ];

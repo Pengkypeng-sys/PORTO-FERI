@@ -7,8 +7,8 @@ export interface SocialLink {
 export const SITE = {
   name: "Feriman",
   email: "feriman.getup@gmail.com",
-  location: "Jakarta, Indonesia",
-  website: { label: "portofol.io/feriman", url: "https://portofol.io/feriman" },
+  location: "Depok, Jawa Barat",
+  website: { label: "porto-feri.vercel.app", url: "https://porto-feri.vercel.app" },
   /** Tambahkan akun di sini (GitHub, LinkedIn, Instagram, WhatsApp, ...); otomatis tampil di halaman Kontak. */
   socials: [
     { label: "LinkedIn", handle: "in/ferimann", url: "https://www.linkedin.com/in/ferimann/" },
