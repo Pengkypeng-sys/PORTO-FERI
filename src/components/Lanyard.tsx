@@ -264,13 +264,9 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
             }}
           >
             <mesh geometry={nodes.card.geometry}>
-              <meshPhysicalMaterial
-                map={hovered ? faceColor : faceGray}
-                clearcoat={isMobile ? 0 : 1}
-                clearcoatRoughness={0.15}
-                roughness={0.55}
-                metalness={0.1}
-              />
+              {/* Unlit on purpose: scene.environment's bright Lightformers (and ACES tone mapping) wash a lit
+                  material out to ~2.5x brightness, so the ID photo would look pale. Basic = true colours. */}
+              <meshBasicMaterial map={hovered ? faceColor : faceGray} toneMapped={false} />
             </mesh>
             <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
             <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
