@@ -13,7 +13,7 @@ function ProjectCard({ pr, priority = false, wide = false }: { pr: Project; prio
     <>
       <div
         className={`relative aspect-[16/10] overflow-hidden bg-bau-bg2 border-b border-bau-border ${
-          split ? `lg:aspect-auto ${feat ? "lg:min-h-[440px]" : "lg:min-h-[340px]"} lg:border-b-0 lg:border-r` : ""
+          split ? "lg:aspect-auto lg:min-h-[440px] lg:border-b-0 lg:border-r" : ""
         }`}
       >
         <Image
