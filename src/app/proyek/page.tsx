@@ -1,84 +1,110 @@
 "use client";
 
+import Image from "next/image";
 import { useFadeUp } from "@/hooks/useFadeUp";
+import SectionHeader from "@/components/SectionHeader";
+import { PROJECTS, MORE_PROJECTS, type Project } from "@/data/projects";
+
+function ProjectCard({ pr, priority = false }: { pr: Project; priority?: boolean }) {
+  const feat = pr.featured;
+  const body = (
+    <>
+      <div
+        className={`relative aspect-[16/10] overflow-hidden bg-bau-bg2 border-b border-bau-border ${
+          feat ? "lg:aspect-auto lg:min-h-[440px] lg:border-b-0 lg:border-r" : ""
+        }`}
+      >
+        <Image
+          src={pr.image}
+          alt={`Tampilan proyek ${pr.name}`}
+          fill
+          priority={priority}
+          sizes={feat ? "(min-width: 1024px) 58vw, 100vw" : "(min-width: 768px) 50vw, 100vw"}
+          className={`transition-transform duration-700 ease-out group-hover:scale-[1.04] object-cover object-top`}
+        />
+      </div>
+      <div className={`flex flex-col flex-1 ${feat ? "p-[24px_24px_26px] lg:p-[44px_44px_40px]" : "p-[20px_22px_22px]"}`}>
+        <div className="flex items-start justify-between gap-3 mb-2">
+          <h3 className={`font-serif leading-[1.15] text-bau-ink group-hover:text-bau-green transition-colors ${feat ? "text-[28px] lg:text-[36px] tracking-[-0.02em]" : "text-[19px]"}`}>
+            {pr.name}
+          </h3>
+          {pr.link && (
+            <span className="font-mono text-[14px] text-bau-muted group-hover:text-bau-green transition-colors" aria-hidden>
+              ↗
+            </span>
+          )}
+        </div>
+        <p className={`text-bau-ink2 mb-5 ${feat ? "text-[15px] leading-[1.75]" : "text-[14px] leading-[1.7]"}`}>{pr.desc}</p>
+        {pr.stack && (
+          <ul className="flex flex-wrap gap-1.5 list-none p-0 mb-6">
+            {pr.stack.map((t) => (
+              <li key={t} className="font-mono text-[11px] py-1 px-2.5 border border-bau-border text-bau-ink2 bg-bau-white">
+                {t}
+              </li>
+            ))}
+          </ul>
+        )}
+        <div className="mt-auto border-t border-bau-border pt-4">
+          <span className="font-mono text-[11px] tracking-widest uppercase text-bau-muted">{pr.status}</span>
+        </div>
+      </div>
+    </>
+  );
+
+  const cls =
+    "group flex flex-col bg-bau-bg hover:bg-bau-white transition-colors duration-500 fade-up";
+  const layout = feat ? `${cls} md:col-span-2 lg:grid lg:grid-cols-[1.35fr_1fr]` : cls;
+
+  return pr.link ? (
+    <a href={pr.link} target="_blank" rel="noopener noreferrer" className={layout}>
+      {body}
+    </a>
+  ) : (
+    <div className={layout}>{body}</div>
+  );
+}
 
 export default function Proyek() {
   useFadeUp();
 
   return (
-    <section className="p-9 md:p-[48px] border-b border-bau-border flex-1" id="proyek">
-      <div className="flex justify-between items-end mb-9 fade-up">
-        <div>
-          <div className="font-mono text-[8px] tracking-widest uppercase text-bau-muted mb-3">04 / Proyek & Pencapaian</div>
-          <h2 className="font-serif text-[28px] leading-[1.1] mt-2">Studi Kasus <em className="italic text-bau-muted">Proyek.</em></h2>
-        </div>
-        <span className="font-mono text-[9px] text-bau-muted tracking-wider">ACTIVE / LIVE</span>
+    <section className="border-b border-bau-border flex-1" id="proyek">
+      <SectionHeader label="Proyek" title="Yang sudah" accent="berjalan." />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-bau-border border-t border-bau-border">
+        {PROJECTS.map((pr, i) => (
+          <ProjectCard key={pr.id} pr={pr} priority={i < 3} />
+        ))}
       </div>
 
-      {[
-        {
-          idx: "01", name: "Portal & Registrasi SDI Al-Fakhir",
-          desc: "Pengembangan sistem portal dan registrasi siswa dengan integrasi Google API. Menangani alur pendaftaran dari formulir hingga pelaporan data.",
-          badge: "WEB APP\nLIVE",
-          metric: "Website", metricSub: "sdialfakhir.sch.id",
-          link: "https://www.sdialfakhir.sch.id/"
-        },
-        {
-          idx: "02", name: "Al-Fakhir Admin Dashboard",
-          desc: "Aplikasi PWA Dashboard Administrator untuk mengelola data siswa, terhubung secara real-time dengan sistem database produksi PostgreSQL.",
-          badge: "PWA / ADMIN\nLIVE",
-          metric: "Portal", metricSub: "Dashboard Vercel",
-          link: "https://dashboard-alfakhir-seven.vercel.app/admin/admin"
-        },
-        {
-          idx: "03", name: "Sewa HTKu Rental Platform",
-          desc: "Platform penyedia layanan penyewaan walkie-talkie (HT) yang dioptimasi khusus untuk mendominasi SEO pada mesin pencari lokal.",
-          badge: "SEO / RENTAL\nLIVE",
-          metric: "Rental", metricSub: "sewahtku.com",
-          link: "https://www.sewahtku.com/"
-        },
-        {
-          idx: "04", name: "WhatsApp AI Gateway",
-          desc: "Enterprise-grade conversational AI pipeline mengintegrasikan LLM untuk routing layanan pelanggan otomatis dan pembuatan respons.",
-          badge: "AI / AUTOMATION\nACTIVE",
-          metric: "3k+", metricSub: "MSG/DAY"
-        },
-        {
-          idx: "05", name: "Fibernet Network Architecture",
-          desc: "Sistem distribusi jaringan fiber optik high-availability dengan redundant failover dan manajemen bandwidth terpusat.",
-          badge: "INFRASTRUCTURE\nACTIVE",
-          metric: "99.9%", metricSub: "UPTIME"
-        }
-      ].map((pr, i) => {
-        const Wrapper = pr.link ? "a" : "div";
-        return (
-          <Wrapper 
-            key={i} 
-            href={pr.link} 
-            target={pr.link ? "_blank" : undefined}
-            rel={pr.link ? "noopener noreferrer" : undefined}
-            className="grid grid-cols-[36px_1fr] md:grid-cols-[40px_1fr_140px_110px] items-start gap-5 py-5 border-t border-bau-border fade-up hover:bg-bau-white transition-colors duration-500 ease-in-out px-2 md:-mx-2 rounded-sm group cursor-pointer"
-          >
-            <span className="font-mono text-[9px] text-bau-muted pt-1 group-hover:text-bau-ink transition-colors">{pr.idx}</span>
-            <div>
-              <div className="font-serif text-[17px] leading-[1.2] mb-[5px] text-bau-ink group-hover:text-bau-green transition-colors flex items-center gap-2">
-                {pr.name}
-                {pr.link && (
-                  <span className="font-mono text-[10px] opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0 text-bau-green">↗</span>
+      <div className="p-[40px_24px_48px] md:p-[56px_48px_64px] bg-bau-bg2 border-t border-bau-border">
+        <h3 className="font-mono text-[11px] tracking-widest uppercase text-bau-muted mb-8 fade-up">Proyek lainnya</h3>
+        <ul className="list-none p-0">
+          {MORE_PROJECTS.map((m) => {
+            const inner = (
+              <>
+                <div className="flex items-start justify-between gap-4 mb-1">
+                  <span className="font-serif text-[21px] leading-[1.2] group-hover:text-bau-green transition-colors">{m.name}</span>
+                  <span className="font-mono text-[11px] tracking-widest uppercase text-bau-muted shrink-0 pt-1">{m.status}</span>
+                </div>
+                <p className="text-[14px] text-bau-ink2 leading-[1.7] max-w-[760px] mb-3">{m.desc}</p>
+                <p className="font-mono text-[11px] text-bau-muted">{m.stack.join(" · ")}</p>
+              </>
+            );
+            return (
+              <li key={m.id} className="border-t border-bau-border fade-up">
+                {m.link ? (
+                  <a href={m.link} target="_blank" rel="noopener noreferrer" className="group block py-6">
+                    {inner}
+                  </a>
+                ) : (
+                  <div className="group py-6">{inner}</div>
                 )}
-              </div>
-              <div className="text-[12px] text-bau-ink2 leading-[1.65] mt-1 group-hover:text-bau-ink transition-colors">{pr.desc}</div>
-            </div>
-            <div className="hidden md:block font-mono text-[8px] tracking-widest uppercase text-bau-muted text-right pt-1 leading-[1.8] whitespace-pre-line group-hover:text-bau-ink transition-colors">
-              {pr.badge}
-            </div>
-            <div className="hidden md:block text-right">
-              <div className={`font-serif text-bau-ink leading-none text-[26px] ${pr.metric.length > 5 ? 'text-[20px]' : ''} group-hover:text-bau-green transition-colors`}>{pr.metric}</div>
-              <div className="font-mono text-[8px] text-bau-muted mt-1 group-hover:text-bau-ink transition-colors">{pr.metricSub}</div>
-            </div>
-          </Wrapper>
-        );
-      })}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </section>
   );
 }

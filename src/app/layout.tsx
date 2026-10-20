@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter, DM_Serif_Display, Space_Mono } from "next/font/google";
+import { Instrument_Sans, DM_Serif_Display, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const fontInter = Inter({
-  variable: "--font-inter",
+const fontBody = Instrument_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const fontDMSerifDisplay = DM_Serif_Display({
@@ -23,21 +23,27 @@ const fontSpaceMono = Space_Mono({
   weight: ["400", "700"],
 });
 
+// Vercel menyuntikkan domain produksi; di lokal jatuh ke localhost.
+const siteUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
-  title: "Feriman | IT Infrastructure Engineer",
-  description: "IT Infrastructure Engineer & Full-Stack Developer focusing on Network Architecture, Private Cloud Orchestration, and AI Automation.",
+  metadataBase: new URL(siteUrl),
+  title: "Feriman | Full Stack Developer & IT Staff",
+  description: "Portofolio Feriman, Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem. Mencari peluang kerja di bidang IT.",
   openGraph: {
-    title: "Feriman | IT Infrastructure Engineer",
-    description: "Portofolio Profesional Feriman. Membangun infrastruktur cloud skala enterprise, otomasi AI, dan aplikasi web modern.",
-    url: "https://feriman.com",
+    title: "Feriman | Full Stack Developer & IT Staff",
+    description: "Portofolio Feriman: Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem.",
+    url: "/",
     siteName: "Feriman Portfolio",
     locale: "id_ID",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Feriman | IT Infrastructure Engineer",
-    description: "Portofolio Profesional Feriman. Membangun infrastruktur cloud skala enterprise, otomasi AI, dan aplikasi web modern.",
+    title: "Feriman | Full Stack Developer & IT Staff",
+    description: "Portofolio Feriman: Full Stack Developer & IT Staff dengan keahlian jaringan, server, dan pengembangan sistem.",
   },
 };
 
@@ -49,8 +55,9 @@ export default function RootLayout({
   return (
     <html
       lang="id"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${fontInter.variable} ${fontDMSerifDisplay.variable} ${fontSpaceMono.variable} antialiased`}
+      className={`${fontBody.variable} ${fontDMSerifDisplay.variable} ${fontSpaceMono.variable} antialiased`}
     >
       <body className="font-sans bg-bau-bg text-bau-ink min-h-screen text-[14px] leading-[1.6] overflow-x-hidden flex flex-col">
         <Navbar />
