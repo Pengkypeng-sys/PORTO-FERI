@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { FiGithub, FiGlobe, FiLinkedin, FiMail, FiMapPin } from "react-icons/fi";
 import { CV_SHARED, CV_VARIANTS, type CvSection, type CvVariant } from "@/data/cv";
+import { COMMITTEES } from "@/data/education";
 import { SITE } from "@/data/site";
 import CvPrivate from "./CvPrivate";
 
@@ -62,10 +63,21 @@ export default function CvSheet({ variant }: { variant: CvVariant }) {
       </Section>
     ),
     certificates: (
-      <Section label="Sertifikat Pelatihan">
+      <Section label={cv.certificatesLabel}>
         <ul>
           {cv.certificateOrder.map((id) => (
             <li key={id}>{CV_SHARED.certificates[id]}</li>
+          ))}
+        </ul>
+      </Section>
+    ),
+    committees: (
+      <Section label="Kepanitiaan">
+        <ul>
+          {COMMITTEES.map((c) => (
+            <li key={c.role}>
+              {c.role} — {c.org} · {c.period}
+            </li>
           ))}
         </ul>
       </Section>

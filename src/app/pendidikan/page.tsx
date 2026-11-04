@@ -100,9 +100,9 @@ export default function Pendidikan() {
 
         {/* Organisasi */}
         <div className="p-6 md:p-12 bg-bau-bg2 fade-up">
-          <div className="font-mono text-[11px] tracking-widest uppercase text-bau-muted mb-2">Pengalaman Organisasi</div>
+          <div className="font-mono text-[11px] tracking-widest uppercase text-bau-muted mb-2">Organisasi &amp; Kepanitiaan</div>
           <h3 className="font-serif text-[clamp(1.5rem,2.4vw,2rem)] leading-[1.1] tracking-[-0.02em] mb-8">
-            Peran <em className="text-bau-muted">Kepemimpinan.</em>
+            Peran <em className="text-bau-muted">di kampus.</em>
           </h3>
           <ol className="list-none p-0">
             {ORGANIZATIONS.map((o) => (
@@ -114,7 +114,7 @@ export default function Pendidikan() {
                   <div className="font-mono text-[11px] tracking-widest uppercase text-bau-muted mb-1.5">{o.period}</div>
                   <div className="font-serif text-[20px] leading-[1.2] mb-1">{o.role}</div>
                   <div className="font-mono text-[11px] tracking-wider text-bau-muted mb-2">{o.org}</div>
-                  <p className="text-[13px] text-bau-ink2 leading-[1.65]">{o.desc}</p>
+                  {o.desc && <p className="text-[13px] text-bau-ink2 leading-[1.65]">{o.desc}</p>}
                 </div>
               </li>
             ))}

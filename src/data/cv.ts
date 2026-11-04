@@ -2,8 +2,8 @@ import { AL_FAKHIR, EXPERIENCE, SEA_TODAY, SOLE_IT_STAFF, type Experience } from
 
 /**
  * Teks khusus CV. Kontak diambil dari site.ts, pengalaman Full Stack dari experience.ts (sama dengan
- * halaman Profil). Nomor HP dan tanggal lahir TIDAK disimpan di sini: keduanya hanya dicetak ke PDF
- * lewat query `?tel=` dan `?dob=` (lihat scripts/build-cv.mjs dan app/cv/CvPrivate.tsx).
+ * halaman Profil). Nomor HP, tanggal lahir, dan status pernikahan TIDAK disimpan di sini: ketiganya hanya
+ * dicetak ke PDF lewat query `?tel=`, `?dob=`, dan `?status=` (lihat scripts/build-cv.mjs dan app/cv/CvPrivate.tsx).
  */
 export type CvVariant = "fullstack" | "infra";
 
@@ -20,7 +20,7 @@ export interface CvSkillLine {
   items: string[];
 }
 
-export type CvSection = "projects" | "education" | "certificates";
+export type CvSection = "projects" | "education" | "certificates" | "committees";
 
 export interface CvVariantData {
   /** Nama file PDF di folder public. */
@@ -39,6 +39,8 @@ export interface CvVariantData {
   /** Sertakan sitasi publikasi di Pendidikan. */
   publication: boolean;
   certificateOrder: CertificateId[];
+  /** Judul section sertifikat di CV. */
+  certificatesLabel: string;
 }
 
 export type CertificateId = "aws" | "ccna-ent" | "ccna-intro";
@@ -57,22 +59,25 @@ export const CV_SHARED = {
     },
   ],
   certificates: {
-    aws: "AWS Full Stack Cloud Engineer — MSIB Angkatan 6, SEAL (2024)",
-    "ccna-ent": "CCNAv7: Enterprise Networking, Security, and Automation — Cisco (2022)",
-    "ccna-intro": "CCNAv7: Introduction to Networks — Cisco (2021)",
+    aws: "Program AWS Full Stack Cloud Engineer — MSIB Angkatan 6, SEAL (Feb–Jun 2024, 20 SKS)",
+    "ccna-ent": "CCNAv7: Enterprise Networking, Security, and Automation — Cisco Networking Academy (2022)",
+    "ccna-intro": "CCNAv7: Introduction to Networks — Cisco Networking Academy (2021)",
   } satisfies Record<CertificateId, string>,
 } as const;
+
+/** Entri SEA Today diringkas jadi satu baris di kedua varian agar CV muat satu halaman. */
+const SEA_LINE = {
+  title: "Content & Growth Specialist",
+  detail: "SEA Today (kontrak 2 bulan, 2022) — subscriber YouTube 40.000 → 80.000.",
+};
 
 const fullstack: CvVariantData = {
   pdf: "CV_Feriman_FullStack_Developer.pdf",
   headline: "Full Stack Developer — TypeScript · Next.js · NestJS · Flutter",
   summary:
-    "Full Stack Developer yang membangun dan menjalankan sistem informasi sekolah secara end-to-end: desain database, API, web, dan aplikasi mobile, hingga deployment di server self-hosted. Sistem yang saya bangun digunakan setiap hari oleh ±600 siswa, ±100 guru, dan orang tua. Lulusan S1 Teknik Komputer dengan latar belakang jaringan (Cisco CCNA) dan cloud (AWS).",
+    "Full Stack Developer yang membangun dan menjalankan sistem informasi sekolah secara end-to-end: desain database, API, web, dan aplikasi mobile, hingga deployment di server self-hosted. Sistem yang saya bangun digunakan setiap hari oleh ±600 siswa, ±100 guru, dan orang tua. Lulusan S1 Teknik Komputer dengan latar belakang jaringan (pelatihan Cisco CCNAv7) dan cloud (program AWS MSIB).",
   experience: EXPERIENCE.filter((e) => e !== SEA_TODAY),
-  earlier: {
-    title: "Content & Growth Specialist",
-    detail: "SEA Today (kontrak 2 bulan, 2022) — subscriber YouTube 40.000 → 80.000.",
-  },
+  earlier: SEA_LINE,
   projects: [
     { name: "Al-Fakhir School LMS", url: "smpialfakhir.sch.id" },
     { name: "OSALFA E-Voting", url: "voting.smpialfakhir.sch.id" },
@@ -90,13 +95,14 @@ const fullstack: CvVariantData = {
   sections: ["projects", "education", "certificates"],
   publication: true,
   certificateOrder: ["aws", "ccna-ent", "ccna-intro"],
+  certificatesLabel: "Sertifikat Pelatihan",
 };
 
 const infra: CvVariantData = {
   pdf: "CV_Feriman_IT_Infrastructure.pdf",
   headline: "IT Infrastructure & Network Engineer — MikroTik · Proxmox · Docker",
   summary:
-    "IT Engineer yang mengelola jaringan dua unit sekolah (±1.000 perangkat) dan infrastruktur server self-hosted berbasis Proxmox VE dan Docker. Berpengalaman mengelola switch, access point, routing, dan QoS MikroTik, mengamankan akses layanan dengan Cloudflare Tunnel, serta mengotomasi operasional IT dengan n8n. Bersertifikat Cisco CCNAv7 dan AWS Cloud, dengan kemampuan membangun aplikasi internal sendiri.",
+    "IT Engineer yang mengelola jaringan dua unit sekolah (±1.000 perangkat) dan infrastruktur server self-hosted berbasis Proxmox VE dan Docker. Berpengalaman mengelola switch, access point, routing, dan QoS MikroTik, mengamankan akses layanan dengan Cloudflare Tunnel, serta mengotomasi operasional IT dengan n8n. Lulusan pelatihan Cisco CCNAv7 (Networking Academy) dan program AWS Full Stack Cloud Engineer (MSIB), dengan kemampuan membangun aplikasi internal sendiri.",
   experience: [
     {
       period: "Des 2025 - Sekarang",
@@ -122,8 +128,8 @@ const infra: CvVariantData = {
         "Merawat server dan jaringan lokal SD & SMP Islam Modern Al-Fakhir secara paruh waktu sebelum bergabung penuh pada Desember 2025.",
       ],
     },
-    SEA_TODAY,
   ],
+  earlier: SEA_LINE,
   projects: [
     { name: "Infrastruktur jaringan & server dua unit sekolah", detail: "Proxmox, Docker, MikroTik, Cloudflare Tunnel" },
     { name: "OSALFA E-Voting (self-hosted di Proxmox)", url: "voting.smpialfakhir.sch.id" },
@@ -131,15 +137,16 @@ const infra: CvVariantData = {
   ],
   projectColumns: false,
   skills: [
-    { label: "Jaringan", items: ["MikroTik", "routing", "QoS", "switch & access point", "Cisco (CCNAv7)"] },
-    { label: "Server", items: ["Proxmox VE", "Linux", "Docker", "Nginx", "Redis", "MinIO", "Cloudflare Tunnel"] },
-    { label: "Otomasi", items: ["n8n", "WAHA (WhatsApp HTTP API)", "Google Apps Script", "integrasi WhatsApp"] },
+    { label: "Jaringan", items: ["MikroTik", "routing", "QoS", "switch & access point", "Cisco (pelatihan CCNAv7)"] },
+    { label: "Server", items: ["Proxmox VE", "Linux", "Docker", "Nginx", "Redis", "MinIO", "Cloudflare Tunnel", "Container Orchestration", "Logging & Monitoring"] },
+    { label: "Otomasi", items: ["n8n", "WAHA (WhatsApp HTTP API)", "Google Apps Script", "integrasi WhatsApp", "Infrastructure Automation"] },
     { label: "Development", items: ["TypeScript", "Node.js", "Next.js", "PostgreSQL", "Flutter"] },
-    { label: "Lainnya", items: ["Google Workspace"] },
+    { label: "Lainnya", items: ["Google Workspace", "OBS Studio (live streaming)"] },
   ],
-  sections: ["certificates", "projects", "education"],
+  sections: ["certificates", "projects", "education", "committees"],
   publication: false,
   certificateOrder: ["ccna-ent", "ccna-intro", "aws"],
+  certificatesLabel: "Pelatihan Bersertifikat",
 };
 
 export const CV_VARIANTS: Record<CvVariant, CvVariantData> = { fullstack, infra };
