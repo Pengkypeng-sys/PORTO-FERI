@@ -108,7 +108,7 @@ const infra: CvVariantData = {
   pdf: "CV_Feriman_IT_Infrastructure.pdf",
   headline: "IT Infrastructure & Network Engineer — MikroTik · Proxmox · Docker",
   summary:
-    "IT Engineer yang mengelola jaringan dua unit sekolah (±1.000 perangkat) dan infrastruktur server self-hosted berbasis Proxmox VE dan Docker. Berpengalaman mengelola switch, access point, routing, dan QoS MikroTik, mengamankan akses layanan dengan Cloudflare Tunnel, serta mengotomasi operasional IT dengan n8n. Lulusan pelatihan Cisco CCNAv7 (Networking Academy) dan program AWS Full Stack Cloud Engineer (MSIB), dengan kemampuan membangun aplikasi internal sendiri.",
+    "IT Engineer yang mengelola jaringan dua unit sekolah (±1.000 perangkat) dan infrastruktur server self-hosted berbasis Proxmox VE dan Docker. Berpengalaman merancang segmentasi VLAN serta mengelola switch, access point, routing, dan QoS berbasis MikroTik dan Ruijie, mengamankan akses layanan dengan Cloudflare Tunnel, serta mengotomasi operasional IT dengan n8n. Lulusan pelatihan Cisco CCNAv7 (Networking Academy) dan program AWS Full Stack Cloud Engineer (MSIB), dengan kemampuan membangun aplikasi internal sendiri.",
   experience: [
     {
       period: "Des 2025 - Sekarang",
