@@ -11,6 +11,10 @@ export const AL_FAKHIR = "SD & SMP Islam Modern Al-Fakhir · Sawangan, Depok";
 /** Bullet pembuka pengalaman Al-Fakhir, dipakai di semua varian CV dan di situs. */
 export const SOLE_IT_STAFF = "Satu-satunya staf IT untuk dua unit sekolah, mencakup jaringan, server, dan pengembangan aplikasi.";
 
+/** Bullet jaringan sekolah, dipakai di halaman Profil dan kedua varian CV. */
+export const NETWORK_BULLET =
+  "Merancang dan mengelola jaringan dua unit sekolah (±1.000 perangkat) berbasis MikroTik dan Ruijie: segmentasi VLAN, switch, access point, routing, dan QoS.";
+
 export const SEA_TODAY: Experience = {
   period: "Pertengahan 2022",
   role: "Content & Growth Specialist",
@@ -30,7 +34,7 @@ export const EXPERIENCE: Experience[] = [
       "Mengembangkan presensi gerbang RFID/QR dengan notifikasi WhatsApp otomatis ke orang tua, menggantikan absensi manual.",
       "Membangun portal registrasi siswa, dashboard admin PWA (Google OAuth, sinkronisasi Google Sheets), dan sistem e-voting OSIS dengan kode pemilih sekali pakai.",
       "Men-deploy 10 portal web (admin, guru, dan orang tua untuk SD dan SMP), backend API, PostgreSQL, Redis, dan MinIO sebagai 22 container Docker di Proxmox, dengan akses publik melalui Cloudflare Tunnel; mengotomasi provisioning akun pengguna dengan n8n.",
-      "Mengelola jaringan dua unit sekolah (±1.000 perangkat): switch, access point, routing, dan QoS MikroTik.",
+      NETWORK_BULLET,
     ],
   },
   {

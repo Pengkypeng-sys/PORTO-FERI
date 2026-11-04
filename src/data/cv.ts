@@ -1,4 +1,4 @@
-import { AL_FAKHIR, EXPERIENCE, SEA_TODAY, SOLE_IT_STAFF, type Experience } from "./experience";
+import { AL_FAKHIR, EXPERIENCE, NETWORK_BULLET, SEA_TODAY, SOLE_IT_STAFF, type Experience } from "./experience";
 
 /**
  * Teks khusus CV. Kontak diambil dari site.ts, pengalaman Full Stack dari experience.ts (sama dengan
@@ -71,12 +71,18 @@ const SEA_LINE = {
   detail: "SEA Today (kontrak 2 bulan, 2022) — subscriber YouTube 40.000 → 80.000.",
 };
 
+/** Versi ringkas bullet jaringan untuk CV Full Stack, supaya tetap satu baris dan halaman muat. */
+const FULLSTACK_NETWORK_BULLET = "Mengelola jaringan dua unit sekolah (±1.000 perangkat) dengan MikroTik dan Ruijie, termasuk VLAN.";
+
 const fullstack: CvVariantData = {
   pdf: "CV_Feriman_FullStack_Developer.pdf",
   headline: "Full Stack Developer — TypeScript · Next.js · NestJS · Flutter",
   summary:
     "Full Stack Developer yang membangun dan menjalankan sistem informasi sekolah secara end-to-end: desain database, API, web, dan aplikasi mobile, hingga deployment di server self-hosted. Sistem yang saya bangun digunakan setiap hari oleh ±600 siswa, ±100 guru, dan orang tua. Lulusan S1 Teknik Komputer dengan latar belakang jaringan (pelatihan Cisco CCNAv7) dan cloud (program AWS MSIB).",
-  experience: EXPERIENCE.filter((e) => e !== SEA_TODAY),
+  experience: EXPERIENCE.filter((e) => e !== SEA_TODAY).map((e) => ({
+    ...e,
+    points: e.points.map((p) => (p === NETWORK_BULLET ? FULLSTACK_NETWORK_BULLET : p)),
+  })),
   earlier: SEA_LINE,
   projects: [
     { name: "Al-Fakhir School LMS", url: "smpialfakhir.sch.id" },
@@ -111,7 +117,7 @@ const infra: CvVariantData = {
       current: true,
       points: [
         SOLE_IT_STAFF,
-        "Mengelola jaringan dua unit sekolah (±1.000 perangkat): switch, access point, routing, dan QoS MikroTik.",
+        NETWORK_BULLET,
         "Menjalankan server Proxmox VE dengan 6 container LXC dan 22 container Docker, mencakup frontend multi-portal, backend API, PostgreSQL, Redis, MinIO, n8n, dan gateway WhatsApp. Akses publik melalui Nginx dan Cloudflare Tunnel tanpa IP publik.",
         "Mengotomasi provisioning akun pengguna dengan n8n.",
         "Menyediakan dan memelihara layanan self-hosted yang dipakai ±600 siswa dan ±100 guru: LMS, presensi RFID/QR, e-voting OSIS, dan portal registrasi.",
@@ -137,7 +143,7 @@ const infra: CvVariantData = {
   ],
   projectColumns: false,
   skills: [
-    { label: "Jaringan", items: ["MikroTik", "routing", "QoS", "switch & access point", "Cisco Packet Tracer (pelatihan CCNAv7)"] },
+    { label: "Jaringan", items: ["MikroTik", "Ruijie", "VLAN", "routing", "QoS", "switch & access point", "Cisco Packet Tracer (pelatihan CCNAv7)"] },
     { label: "Server", items: ["Proxmox VE", "Linux", "Docker", "Nginx", "Redis", "MinIO", "Cloudflare Tunnel", "Container Orchestration", "Logging & Monitoring"] },
     { label: "Otomasi", items: ["n8n", "WAHA (WhatsApp HTTP API)", "Google Apps Script", "integrasi WhatsApp", "Infrastructure Automation"] },
     { label: "Development", items: ["TypeScript", "Node.js", "Next.js", "PostgreSQL", "Flutter"] },

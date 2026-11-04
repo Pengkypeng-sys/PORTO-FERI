@@ -15,7 +15,7 @@ const FEATURED = PROJECTS.slice(0, 3);
 const OFFERS = [
   { title: "Pengembangan sistem & web", desc: "LMS, pembayaran, presensi, portal registrasi, dan aplikasi web, PWA, atau mobile." },
   { title: "Server & deployment", desc: "Docker, Proxmox, dan Cloudflare Tunnel untuk layanan yang berjalan stabil di server sendiri." },
-  { title: "Jaringan & otomasi", desc: "Jaringan MikroTik dan Cisco Packet Tracer, serta otomasi dengan n8n dan WhatsApp." },
+  { title: "Jaringan & otomasi", desc: "Jaringan MikroTik, Ruijie, dan Cisco Packet Tracer, serta otomasi dengan n8n dan WhatsApp." },
 ];
 
 const STACK = ["TypeScript", "Next.js", "NestJS", "Flutter", "PostgreSQL", "Docker"];
