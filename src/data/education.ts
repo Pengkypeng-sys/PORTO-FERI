@@ -11,11 +11,13 @@ export const COMMITTEES: Organization[] = [
     period: "Sep 2022",
     role: "Anggota Panitia",
     org: "Ready for Challenge 2022, kegiatan Badan Siber dan Sandi Negara (BSSN) di Universitas Amikom Yogyakarta",
+    desc: "Kegiatan keamanan siber yang diselenggarakan Badan Siber dan Sandi Negara di Universitas Amikom Yogyakarta, 20–21 September 2022.",
   },
   {
     period: "2022",
     role: "Dokumentasi & Live Streaming (OBS)",
     org: "ANNOFEST dan Amikom Video Competition (AVC), Universitas Amikom Yogyakarta",
+    desc: "Divisi dokumentasi dan live streaming acara menggunakan OBS Studio.",
   },
 ];
 

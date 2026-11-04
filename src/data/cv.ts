@@ -137,7 +137,7 @@ const infra: CvVariantData = {
   ],
   projectColumns: false,
   skills: [
-    { label: "Jaringan", items: ["MikroTik", "routing", "QoS", "switch & access point", "Cisco (pelatihan CCNAv7)"] },
+    { label: "Jaringan", items: ["MikroTik", "routing", "QoS", "switch & access point", "Cisco Packet Tracer (pelatihan CCNAv7)"] },
     { label: "Server", items: ["Proxmox VE", "Linux", "Docker", "Nginx", "Redis", "MinIO", "Cloudflare Tunnel", "Container Orchestration", "Logging & Monitoring"] },
     { label: "Otomasi", items: ["n8n", "WAHA (WhatsApp HTTP API)", "Google Apps Script", "integrasi WhatsApp", "Infrastructure Automation"] },
     { label: "Development", items: ["TypeScript", "Node.js", "Next.js", "PostgreSQL", "Flutter"] },
