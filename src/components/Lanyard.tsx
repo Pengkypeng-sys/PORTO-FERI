@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
-import { Canvas, extend, useFrame, type ThreeElement } from '@react-three/fiber';
+import { Canvas, extend, useFrame, useThree, type ThreeElement } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import {
   BallCollider,
@@ -162,6 +162,25 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
   });
   const [dragged, drag] = useState<THREE.Vector3 | false>(false);
   const [hovered, hover] = useState(false);
+  const gl = useThree((s) => s.gl);
+  // True only while a finger/cursor holds the card. Read by the native touch handlers below.
+  const holding = useRef(false);
+
+  // Touch: the browser would otherwise take over the gesture to scroll the page and cancel the drag.
+  // pointerdown (which sets `holding`) fires before touchstart, so we can block scrolling only
+  // when the touch landed on the card; touches elsewhere on the canvas still scroll the page.
+  useEffect(() => {
+    const el = gl.domElement;
+    const block = (e: TouchEvent) => {
+      if (holding.current && e.cancelable) e.preventDefault();
+    };
+    el.addEventListener('touchstart', block, { passive: false });
+    el.addEventListener('touchmove', block, { passive: false });
+    return () => {
+      el.removeEventListener('touchstart', block);
+      el.removeEventListener('touchmove', block);
+    };
+  }, [gl]);
 
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
@@ -254,10 +273,17 @@ function Band({ maxSpeed = 50, minSpeed = 0, isMobile = false }) {
             onPointerOut={() => hover(false)}
             onPointerUp={(e) => {
               (e.target as Element).releasePointerCapture(e.pointerId);
+              holding.current = false;
               drag(false);
+            }}
+            onPointerCancel={() => {
+              holding.current = false;
+              drag(false);
+              hover(false);
             }}
             onPointerDown={(e) => {
               (e.target as Element).setPointerCapture(e.pointerId);
+              holding.current = true;
               if (card.current) {
                 drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
               }

@@ -13,10 +13,12 @@ const Lanyard = dynamic(() => import("@/components/Lanyard"), { ssr: false });
 const FEATURED = PROJECTS.slice(0, 3);
 
 const OFFERS = [
-  { title: "Jaringan & server", desc: "Perancangan jaringan, private cloud, dan perawatan server." },
-  { title: "Operasional IT & otomasi", desc: "Administrasi sistem dan layanan IT, serta otomasi dengan n8n dan AI." },
-  { title: "Pengembangan sistem & web", desc: "LMS, portal registrasi, dan aplikasi web atau PWA." },
+  { title: "Pengembangan sistem & web", desc: "LMS, pembayaran, presensi, portal registrasi, dan aplikasi web, PWA, atau mobile." },
+  { title: "Server & deployment", desc: "Docker, Proxmox, dan Cloudflare Tunnel untuk layanan yang berjalan stabil di server sendiri." },
+  { title: "Jaringan & otomasi", desc: "Jaringan MikroTik dan Cisco, serta otomasi dengan n8n dan WhatsApp." },
 ];
+
+const STACK = ["TypeScript", "Next.js", "NestJS", "Flutter", "PostgreSQL", "Docker"];
 
 const delay = (ms: number) => ({ "--d": `${ms}ms` }) as CSSProperties;
 
@@ -32,21 +34,29 @@ export default function Home() {
 
           <div className="relative pt-4">
             <p className="hero-in font-mono text-[11px] tracking-widest uppercase text-bau-muted mb-6" style={delay(0)}>
-              Full Stack Developer · IT Staff · Jaringan
+              Full Stack Developer · TypeScript · Next.js · NestJS
             </p>
             <h1 className="font-serif text-[clamp(3rem,5.6vw,5.75rem)] leading-[0.95] tracking-[-0.035em] mb-8">
-              <span className="line-mask"><span style={delay(100)}>Infrastruktur</span></span>
-              <span className="line-mask"><span style={delay(190)}>IT yang bekerja</span></span>
+              <span className="line-mask"><span style={delay(100)}>Membangun sistem</span></span>
+              <span className="line-mask"><span style={delay(190)}>dari kode sampai</span></span>
               <span className="line-mask">
                 <span className="text-bau-muted" style={delay(280)}>
-                  diam-diam<span className="text-bau-green">.</span>
+                  server<span className="text-bau-green">.</span>
                 </span>
               </span>
             </h1>
 
-            <p className="hero-in text-[16px] text-bau-ink2 leading-[1.7] max-w-[460px] mb-9" style={delay(420)}>
-              Saya <strong className="text-bau-ink font-semibold">Feriman</strong>, Full Stack Developer &amp; IT Staff dengan pengalaman mengelola jaringan sekolah dan membangun aplikasi seperti LMS, pembayaran, dan presensi. <strong className="text-bau-ink font-semibold">Sedang mencari pekerjaan</strong> di bidang IT: jaringan, developer, atau IT umum.
+            <p className="hero-in text-[16px] text-bau-ink2 leading-[1.7] max-w-[460px] mb-5" style={delay(420)}>
+              Saya <strong className="text-bau-ink font-semibold">Feriman</strong>, lulusan S1 Teknik Komputer yang bekerja sebagai Full Stack Developer. Saya membangun dan menjalankan sistem informasi sekolah (LMS, pembayaran, presensi RFID, dan aplikasi mobile) yang dipakai setiap hari oleh ±600 siswa, ±100 guru, dan orang tua.
             </p>
+
+            <ul className="hero-in flex flex-wrap gap-2 mb-9 list-none p-0" style={delay(480)}>
+              {STACK.map((t) => (
+                <li key={t} className="font-mono text-[11px] tracking-wider py-1 px-2.5 border border-bau-border text-bau-ink2">
+                  {t}
+                </li>
+              ))}
+            </ul>
 
             <div className="hero-in flex gap-3 flex-wrap" style={delay(540)}>
               <Link
@@ -64,7 +74,7 @@ export default function Home() {
               {SITE.cvUrl && (
                 <a
                   href={SITE.cvUrl}
-                  download="CV_Feriman.pdf"
+                  download="CV_Feriman_FullStack_Developer.pdf"
                   className="font-mono text-[11px] tracking-widest uppercase py-3.5 px-6 border border-bau-border text-bau-ink2 hover:border-bau-ink hover:text-bau-ink transition-colors"
                 >
                   Unduh CV ↓
@@ -82,7 +92,7 @@ export default function Home() {
           <div className="absolute inset-0 z-10">
             <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
           </div>
-          <span className="absolute bottom-[18px] right-[20px] font-mono text-[11px] text-bau-muted tracking-wider z-20 pointer-events-none hidden md:block">
+          <span className="absolute bottom-[18px] right-[20px] font-mono text-[11px] text-bau-muted tracking-wider z-20 pointer-events-none">
             ↕ tarik kartunya
           </span>
         </div>

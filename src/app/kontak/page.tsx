@@ -16,6 +16,7 @@ interface ContactRow {
 const ICON_CLS = "w-4 h-4";
 
 const ROWS: ContactRow[] = [
+  { title: SITE.whatsapp.handle, sub: SITE.whatsapp.label, href: SITE.whatsapp.url, icon: <SocialIcon label={SITE.whatsapp.label} className={ICON_CLS} /> },
   ...SITE.socials.map((s) => ({ title: s.handle, sub: s.label, href: s.url, icon: <SocialIcon label={s.label} className={ICON_CLS} /> })),
   ...(SITE.cvUrl
     ? [{ title: "Unduh CV", sub: "Curriculum Vitae (PDF)", href: SITE.cvUrl, icon: <FiDownload className={ICON_CLS} aria-hidden /> }]
@@ -44,7 +45,7 @@ export default function Kontak() {
         <ul className="flex flex-col gap-3 list-none p-0">
           <li className="flex items-center gap-2.5 text-[13px] text-white/60">
             <span className="w-[7px] h-[7px] rounded-full bg-bau-green shrink-0" />
-            Sedang mencari pekerjaan di bidang IT: jaringan, developer, dan IT umum
+            {SITE.status}
           </li>
           <li className="flex items-center gap-2.5 text-[13px] text-white/60">
             <span className="text-[13px] text-white/40">⌖</span>

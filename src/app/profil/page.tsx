@@ -15,7 +15,7 @@ export default function Profil() {
         <div className="font-mono text-[11px] tracking-widest uppercase text-bau-muted mb-3">Profil</div>
         <h2 className="font-serif text-[36px] leading-[1.05] tracking-[-0.02em]">Tentang <em className="text-bau-muted">Feriman.</em></h2>
         <p className="text-[15px] text-bau-ink2 leading-[1.75] mb-7 mt-4">
-          Lulusan S1 Teknik Komputer Universitas Amikom Yogyakarta (IPK 3.29), berpengalaman sebagai Full Stack Developer dan IT Staff di bidang jaringan, server, dan pengembangan sistem.
+          Lulusan S1 Teknik Komputer Universitas Amikom Yogyakarta (IPK 3.29). Full Stack Developer yang juga paham jaringan dan server: membangun sistem dari kode sampai deployment.
         </p>
         <ul className="flex flex-col gap-4 mb-7 list-none p-0">
           {[
