@@ -7,28 +7,28 @@ export interface SkillGroup {
 /** Keahlian inti: tiga bidang yang paling saya kuasai dan paling sering saya kerjakan. */
 export const CORE_SKILLS: SkillGroup[] = [
   {
-    name: "Jaringan & Infrastruktur",
-    desc: "Merancang, mengonfigurasi, dan merawat jaringan: routing, switching, failover, sampai troubleshooting.",
-    tags: ["MikroTik", "Cisco", "VLAN", "QoS"],
+    name: "Web & Sistem",
+    desc: "Membuat aplikasi web dan sistem sekolah dari backend sampai tampilan, termasuk PWA dan aplikasi mobile.",
+    tags: ["React", "Next.js", "TypeScript", "Express / NestJS", "Prisma", "Supabase", "Flutter", "Kotlin", "Tailwind CSS"],
   },
   {
     name: "Cloud & Server",
     desc: "Membangun private cloud dan menjalankan layanan sendiri di VPS maupun server fisik.",
-    tags: ["Proxmox VE", "Docker", "PostgreSQL", "MinIO", "Nginx", "Cloudflare Tunnel", "Linux"],
+    tags: ["Proxmox VE", "Docker", "PostgreSQL", "Redis", "MinIO", "Nginx", "Cloudflare Tunnel", "Linux"],
   },
   {
-    name: "Web & Sistem",
-    desc: "Membuat aplikasi web dan sistem sekolah dari backend sampai tampilan, termasuk PWA dan aplikasi mobile.",
-    tags: ["Next.js", "TypeScript", "Express / NestJS", "Prisma", "Supabase", "Flutter", "Kotlin", "Tailwind CSS"],
+    name: "Jaringan & Infrastruktur",
+    desc: "Merancang, mengonfigurasi, dan merawat jaringan: routing, switching, failover, sampai troubleshooting.",
+    tags: ["MikroTik", "Cisco", "VLAN", "QoS"],
   },
 ];
 
 /** Keahlian pendukung, ditampilkan ringkas. */
 export const SUPPORT_SKILLS: SkillGroup[] = [
   {
-    name: "Otomasi AI & WhatsApp",
-    desc: "LLM (Gemini), Cloudflare Workers, n8n, dan gateway WhatsApp.",
-    tags: ["Gemini API", "n8n", "Cloudflare Workers", "Python"],
+    name: "Otomasi & WhatsApp",
+    desc: "n8n, Cloudflare Workers, gateway WhatsApp, dan integrasi LLM (Gemini).",
+    tags: ["n8n", "WAHA (WhatsApp HTTP API)", "Cloudflare Workers", "Gemini API", "Python"],
   },
   {
     name: "Keamanan Jaringan",
